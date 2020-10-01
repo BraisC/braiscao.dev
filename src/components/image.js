@@ -16,9 +16,9 @@ import Img from 'gatsby-image';
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
+      logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 300, traceSVG: { threshold: 254, color: "#71E2A6" }) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
@@ -26,11 +26,11 @@ const Image = () => {
     }
   `);
 
-  if (!data?.placeholderImage?.childImageSharp?.fluid) {
+  if (!data?.logo?.childImageSharp?.fluid) {
     return <div>Picture not found</div>;
   }
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return <Img fluid={data.logo.childImageSharp.fluid} />;
 };
 
 export default Image;
