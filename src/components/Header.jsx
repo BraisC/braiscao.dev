@@ -7,15 +7,15 @@ const Wrapper = styled.header`
   margin-bottom: 1.4rem;
 `;
 
+const Content = styled.div`
+  margin: 0 auto;
+  max-width: 1240;
+  padding: 1.45rem 1.0875rem;
+`;
+
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+    <Content>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -27,7 +27,7 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
+    </Content>
   </Wrapper>
 );
 
