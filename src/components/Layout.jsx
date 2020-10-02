@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
@@ -19,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent; /* Avoid blue square on tapping */
   }
+
+   html {
+      font-size: 62.5%; 
+      box-sizing: border-box;
+   }
 
   body {
     margin: 0;
@@ -53,26 +57,14 @@ const Content = styled.main`
   padding: 0 4rem;
 `;
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
-  return (
-    <>
-      <GlobalStyle />
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Content>{children}</Content>
-      <Footer />
-    </>
-  );
-};
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyle />
+    <Header />
+    <Content>{children}</Content>
+    <Footer />
+  </>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

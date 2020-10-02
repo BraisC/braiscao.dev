@@ -1,7 +1,7 @@
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Wrapper = styled.header`
   margin-bottom: 1.4rem;
@@ -13,30 +13,29 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
 `;
 
-const Header = ({ siteTitle }) => (
-  <Wrapper>
-    <Content>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </Content>
-  </Wrapper>
-);
+const Logo = styled(Img)`
+  width: 9rem;
+`;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300, traceSVG: { threshold: 254, color: "#71E2A6" }) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <Wrapper>
+      <Content>
+        <Logo fluid={data.logo.childImageSharp.fluid} />
+      </Content>
+    </Wrapper>
+  );
 };
 
 export default Header;
