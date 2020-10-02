@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
+import Footer from './Footer';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -35,6 +36,21 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   }
+
+  [data-emoji] {
+    font-style: normal;
+    font-weight: normal;
+  }
+  [data-emoji]:before {
+    content: attr(data-emoji);
+    margin-right: .250em;
+  }
+`;
+
+const Content = styled.main`
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 4rem;
 `;
 
 const Layout = ({ children }) => {
@@ -52,24 +68,8 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+      <Content>{children}</Content>
+      <Footer />
     </>
   );
 };
