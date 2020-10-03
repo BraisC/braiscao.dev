@@ -7,8 +7,6 @@ const Wrapper = styled.footer`
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 1240;
-  padding: 1.45rem 1.0875rem;
   text-align: center;
   font-size: 1.4rem;
 `;
