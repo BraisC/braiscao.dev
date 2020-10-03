@@ -11,10 +11,9 @@ const Content = styled.div`
   margin: 0 auto;
   max-width: 1240;
   padding: 1.45rem 1.0875rem;
-`;
-
-const Logo = styled(Img)`
-  width: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Header = () => {
@@ -22,17 +21,23 @@ const Header = () => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300, traceSVG: { threshold: 254, color: "#71E2A6" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
+          fixed(width: 100, quality: 100, traceSVG: { threshold: 254, color: "#71E2A6" }) {
+            ...GatsbyImageSharpFixed_tracedSVG
           }
         }
       }
     }
   `);
+
   return (
     <Wrapper>
       <Content>
-        <Logo fluid={data.logo.childImageSharp.fluid} />
+        <Img fixed={data.logo.childImageSharp.fixed} />
+        <ul>
+          <li>Uds</li>
+          <li>Vuds</li>
+          <li>Nods</li>
+        </ul>
       </Content>
     </Wrapper>
   );
