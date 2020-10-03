@@ -22,19 +22,22 @@ const GlobalStyle = createGlobalStyle`
    html {
       font-size: 62.5%; 
       box-sizing: border-box;
+      --color-white: #f4f4f4;
+      --color-black: #0A2027;
+      --color-primary: #71E2A6;
    }
 
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #f4f4f4;
+    color: var(--color-white);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     line-height: 1.6;
     word-wrap: break-word;
     font-kerning: normal;
-    background-color: #0a2027;
+    background-color: var(--color-black);
     -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -49,6 +52,9 @@ const GlobalStyle = createGlobalStyle`
     content: attr(data-emoji);
     margin-right: .250em;
   }
+
+  ::-moz-selection { background: var(--color-primary); }
+  ::selection { background: var(--color-primary); }
 `;
 
 const Content = styled.main`
