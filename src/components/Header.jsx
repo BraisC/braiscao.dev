@@ -13,7 +13,49 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+`;
+
+const Menu = styled.ul`
+  padding: 0 2rem;
+  list-style: none;
+  display: flex;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-left: auto;
+`;
+
+const MenuItem = styled.li`
+  margin: 0.5rem;
+`;
+
+const MenuItemLink = styled.a`
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+`;
+
+const HeaderTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Name = styled.span`
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+`;
+
+const Title = styled.span`
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-primary);
 `;
 
 const Header = () => {
@@ -21,7 +63,7 @@ const Header = () => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 100, quality: 100, traceSVG: { threshold: 254, color: "#71E2A6" }) {
+          fixed(width: 70, quality: 100, traceSVG: { threshold: 254, color: "#71E2A6" }) {
             ...GatsbyImageSharpFixed_tracedSVG
           }
         }
@@ -33,11 +75,24 @@ const Header = () => {
     <Wrapper>
       <Content>
         <Img fixed={data.logo.childImageSharp.fixed} />
-        <ul>
-          <li>Uds</li>
-          <li>Vuds</li>
-          <li>Nods</li>
-        </ul>
+        <HeaderTitle>
+          <Name>Brais Cao</Name>
+          <Title>Web developer</Title>
+        </HeaderTitle>
+        <Menu>
+          <MenuItem>
+            <MenuItemLink>Home</MenuItemLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuItemLink>Portfolio</MenuItemLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuItemLink>About</MenuItemLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuItemLink>Contact</MenuItemLink>
+          </MenuItem>
+        </Menu>
       </Content>
     </Wrapper>
   );
