@@ -4,19 +4,16 @@ import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const Wrapper = styled.header`
-  margin-bottom: 1.4rem;
+  padding: 1rem 2rem;
 `;
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 1240;
-  padding: 1.45rem 1.0875rem;
   display: flex;
   align-items: center;
 `;
 
 const Menu = styled.ul`
-  padding: 0 2rem;
   list-style: none;
   display: flex;
   font-size: 1.6rem;
