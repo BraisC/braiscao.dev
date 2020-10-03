@@ -1,3 +1,7 @@
 {
-  "extends": "@braisc"
+  "extends": "@braisc",
+  "rules": {
+    "react/display-name": 0,
+    "react/jsx-props-no-spreading": 0
+  }
 }
