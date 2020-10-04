@@ -7,11 +7,11 @@ import Typer from './components/Typer';
 
 const Wrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 12rem;
-  margin-bottom: 12rem;
+  min-height: 100vh;
 `;
 
 const StyledHeader = styled.h1`
@@ -42,6 +42,8 @@ const Arrow = styled(FontAwesomeIcon)`
   font-size: 2.4rem;
   margin-top: 3rem;
   transition: all 0.2s ease;
+  position: absolute;
+  bottom: 3rem;
 `;
 
 const StyledButton = styled(Button)`
@@ -50,7 +52,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Home = (props) => (
+const Home = () => (
   <Wrapper>
     <StyledHeader>
       Hi, my name is <StyledName>Brais</StyledName>
