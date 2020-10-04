@@ -19,6 +19,7 @@ const Menu = styled.ul`
   font-size: 1.6rem;
   text-transform: uppercase;
   margin-left: auto;
+  font-weight: 500;
 `;
 
 const MenuItem = styled.li`
