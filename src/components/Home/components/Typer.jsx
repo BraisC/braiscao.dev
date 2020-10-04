@@ -5,7 +5,7 @@ const Typer = (props) => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [typingSpeed, setTypingSpeed] = useState(80);
 
   const refText = useRef(text);
   const refIsDeleting = useRef(isDeleting);
@@ -31,16 +31,18 @@ const Typer = (props) => {
         : fullText.substring(0, refText.current.length + 1)
     );
 
-    setTypingSpeed(refIsDeleting.current ? 30 : 150);
+    //setTypingSpeed(refIsDeleting.current ? 30 : 100);
 
     if (!refIsDeleting.current && refText.current === fullText && !refIsGoingToDelete.current) {
       refIsGoingToDelete.current = true;
       setTimeout(() => {
         setIsDeleting(true);
+        setTypingSpeed(30);
         refIsGoingToDelete.current = false;
       }, 2000);
     } else if (refIsDeleting.current && refText.current === '') {
       setIsDeleting(false);
+      setTypingSpeed(80);
       setLoopNum(refLoopNum.current + 1);
     }
 
@@ -61,7 +63,7 @@ const Typer = (props) => {
   return (
     <>
       <span className={props.className}>{text}</span>
-      <span className="cursor" style={{ color: props.cursorColor }}>
+      <span className={`cursor ${props.className}`} style={{ color: props.cursorColor }}>
         |
       </span>
     </>
