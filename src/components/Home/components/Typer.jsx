@@ -12,6 +12,8 @@ const Typer = (props) => {
   const refLoopNum = useRef(loopNum);
   const refTypingSpeed = useRef(typingSpeed);
 
+  const refTimer = useRef();
+
   refText.current = text;
   refIsDeleting.current = isDeleting;
   refLoopNum.current = loopNum;
@@ -36,18 +38,19 @@ const Typer = (props) => {
       setIsDeleting(false);
       setLoopNum(refLoopNum.current + 1);
     }
-    setTimeout(handleType, refTypingSpeed.current);
+    refTimer.current = setTimeout(handleType, refTypingSpeed.current);
   }, [props]);
 
   useEffect(() => {
     handleType();
+    return () => clearTimeout(refTimer.current);
   }, [handleType]);
 
   return (
     <h1>
       {props.heading}&nbsp;
       <span className={props.className}>{text}</span>
-      <span className="cursor" style={props.style}>
+      <span className="cursor" style={{ color: props.cursorColor }}>
         |
       </span>
     </h1>

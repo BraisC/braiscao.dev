@@ -1,14 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import Typer from '../components/Home/components/Typer';
 import SEO from '../components/SEO';
+
+const StyledTyper = styled(Typer)`
+  color: var(--color-primary);
+`;
 
 const IndexPage = () => (
   <>
     <SEO />
     <h1>Hi, my name is Brais</h1>
     <p>I am a web developer</p>
-    <Typer
-      heading="Things for hipsters:"
+    <span>HGola</span>
+    <StyledTyper
+      cursorColor="#71e2a6"
       dataText={[
         'Vinyl swag.',
         'Seitan jianbing.',
