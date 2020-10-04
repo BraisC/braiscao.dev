@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--color-white);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.2;
     word-wrap: break-word;
     font-kerning: normal;
     background-color: var(--color-black);

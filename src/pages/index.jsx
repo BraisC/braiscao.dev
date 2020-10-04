@@ -3,31 +3,42 @@ import styled from 'styled-components';
 import Typer from '../components/Home/components/Typer';
 import SEO from '../components/SEO';
 
+const StyledHeader = styled.h1`
+  font-size: 9.6rem;
+  font-weight: 700;
+`;
+
+const StyledName = styled.span`
+  color: var(--color-primary);
+  display: block;
+`;
+
+const StyledSubTitle = styled.p`
+  color: var(--color-white);
+  font-size: 6.4rem;
+  font-weight: 700;
+  margin-top: 1.6rem;
+`;
 const StyledTyper = styled(Typer)`
   color: var(--color-primary);
+  font-size: 6.4rem;
+  font-weight: 700;
 `;
 
 const IndexPage = () => (
   <>
     <SEO />
-    <h1>Hi, my name is Brais</h1>
-    <span>I am </span>
-    <StyledTyper
-      cursorColor="#71e2a6"
-      dataText={[
-        'Vinyl swag.',
-        'Seitan jianbing.',
-        'Enamel pin meditation.',
-        'Denim seitan.',
-        'Semiotics austin.',
-        'Sriracha fanny pack.',
-        'Vape raw dreamcatcher.',
-        'Fam blog.',
-        '90s church-key.',
-        'Pabst distillery.',
-        'Street art unicorn.',
-      ]}
-    />
+    <StyledHeader>
+      Hi, my name is <StyledName>Brais</StyledName>
+    </StyledHeader>
+    <StyledSubTitle>
+      I am{' '}
+      <StyledTyper
+        cursorColor="#71e2a6"
+        pauseTimer={1000}
+        dataText={['a web developer.', 'from Spain.', 'passionate.', 'a geek.']}
+      />
+    </StyledSubTitle>
   </>
 );
 
