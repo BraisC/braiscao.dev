@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const Wrapper = styled.header`
   padding: 1rem 2rem;
   position: fixed;
+  width: 100%;
 `;
 
 const Content = styled.div`
