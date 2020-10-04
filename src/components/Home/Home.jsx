@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 8rem 0;
 `;
 
 const StyledHeader = styled.h1`
