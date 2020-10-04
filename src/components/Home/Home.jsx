@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 import Typer from './components/Typer';
 
@@ -36,6 +38,17 @@ const StyledTyper = styled(Typer)`
   font-size: 6.4rem;
   font-weight: 700;
 `;
+const Arrow = styled(FontAwesomeIcon)`
+  font-size: 2.4rem;
+  margin-top: 3rem;
+  transition: all 0.2s ease;
+`;
+
+const StyledButton = styled(Button)`
+  &:hover + ${Arrow} {
+    transform: translateY(1rem);
+  }
+`;
 
 const Home = (props) => (
   <Wrapper>
@@ -51,7 +64,8 @@ const Home = (props) => (
       />
     </StyledSubTitle>
 
-    <Button>Let me show you my work</Button>
+    <StyledButton>Let me show you my work</StyledButton>
+    <Arrow icon={faChevronDown} />
   </Wrapper>
 );
 

@@ -16,6 +16,8 @@ const StyledButton = styled.a`
   }
 `;
 
-const Button = ({ children }) => <StyledButton>{children}</StyledButton>;
+const Button = ({ children, className }) => (
+  <StyledButton className={className}>{children}</StyledButton>
+);
 
 export default Button;
