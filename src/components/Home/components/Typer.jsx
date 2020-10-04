@@ -13,6 +13,7 @@ const Typer = (props) => {
   const refTypingSpeed = useRef(typingSpeed);
 
   const refTimer = useRef();
+  const refIsGoingToDelete = useRef(false);
 
   refText.current = text;
   refIsDeleting.current = isDeleting;
@@ -32,13 +33,24 @@ const Typer = (props) => {
 
     setTypingSpeed(refIsDeleting.current ? 30 : 150);
 
-    if (!refIsDeleting.current && refText.current === fullText) {
-      setTimeout(() => setIsDeleting(true), 500);
+    if (!refIsDeleting.current && refText.current === fullText && !refIsGoingToDelete.current) {
+      refIsGoingToDelete.current = true;
+      setTimeout(() => {
+        setIsDeleting(true);
+        refIsGoingToDelete.current = false;
+      }, 2000);
     } else if (refIsDeleting.current && refText.current === '') {
       setIsDeleting(false);
       setLoopNum(refLoopNum.current + 1);
     }
-    refTimer.current = setTimeout(handleType, refTypingSpeed.current);
+
+    if (refIsGoingToDelete.current) {
+      setTimeout(() => {
+        refTimer.current = setTimeout(handleType, refTypingSpeed.current);
+      }, 2000);
+    } else {
+      refTimer.current = setTimeout(handleType, refTypingSpeed.current);
+    }
   }, [props]);
 
   useEffect(() => {
@@ -47,13 +59,12 @@ const Typer = (props) => {
   }, [handleType]);
 
   return (
-    <h1>
-      {props.heading}&nbsp;
+    <>
       <span className={props.className}>{text}</span>
       <span className="cursor" style={{ color: props.cursorColor }}>
         |
       </span>
-    </h1>
+    </>
   );
 };
 

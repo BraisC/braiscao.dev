@@ -11,8 +11,7 @@ const IndexPage = () => (
   <>
     <SEO />
     <h1>Hi, my name is Brais</h1>
-    <p>I am a web developer</p>
-    <span>HGola</span>
+    <span>I am </span>
     <StyledTyper
       cursorColor="#71e2a6"
       dataText={[
