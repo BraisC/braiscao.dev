@@ -9,6 +9,10 @@ const Wrapper = styled.section`
   align-items: center;
   margin-bottom: 12rem;
   margin-top: 12rem;
+
+  &:last-of-type {
+    margin-bottom: 6rem;
+  }
 `;
 
 const Section = ({ title, subTitle, children }) => (
