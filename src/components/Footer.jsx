@@ -9,6 +9,7 @@ const Content = styled.div`
   margin: 0 auto;
   text-align: center;
   font-size: 1.4rem;
+  padding: 4rem 0;
 `;
 
 const Footer = () => (
