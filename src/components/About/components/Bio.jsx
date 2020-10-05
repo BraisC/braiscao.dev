@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BioText = styled.p`
+const BioText = styled.div`
   font-size: 1.6rem;
   font-weight: 500;
   text-align: justify;
