@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
   }
   *,
   *::before,
@@ -20,11 +21,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
    html {
-      font-size: 62.5%; 
-      box-sizing: border-box;
-      --color-white: #f4f4f4;
-      --color-black: #0A2027;
-      --color-primary: #71E2A6;
+    font-size: 62.5%; 
+    box-sizing: border-box;
+    --color-white: #f4f4f4;
+    --color-black: #0A2027;
+    --color-primary: #71E2A6;
    }
 
   body {

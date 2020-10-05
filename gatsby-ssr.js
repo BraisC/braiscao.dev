@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
 
+import 'typeface-montserrat';
 import React from 'react';
 import Layout from './src/components/Layout';
 
