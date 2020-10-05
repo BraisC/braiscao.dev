@@ -7,6 +7,7 @@ const Wrapper = styled.header`
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
+  z-index: 3;
 `;
 
 const Content = styled.div`
