@@ -72,6 +72,7 @@ const Home = () => (
           'mastering Javascript.',
           'from Spain.',
           'passionate.',
+          'an inconformist.',
           'a geek.',
         ]}
       />
