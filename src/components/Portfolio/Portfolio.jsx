@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SectionTitle from '../SectionTitle';
 import ItemList from './components/ItemList';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
