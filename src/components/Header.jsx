@@ -8,6 +8,7 @@ const Wrapper = styled.header`
   position: fixed;
   width: 100%;
   z-index: 3;
+  background-color: var(--color-black);
 `;
 
 const Content = styled.div`
