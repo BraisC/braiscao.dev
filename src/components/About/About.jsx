@@ -26,6 +26,7 @@ const About = () => {
       <MDXProvider
         components={{
           Stack,
+          Bio,
           /* Inline components, I could have defined styled components outside if I wanted */
           span: (props) => <span {...props} style={{ color: 'var(--color-primary)' }} />,
         }}
