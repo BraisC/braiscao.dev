@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
+import PropTypes from 'prop-types';
+
 import './Typer.css';
 
 const Typer = (props) => {
@@ -21,9 +23,9 @@ const Typer = (props) => {
   refTypingSpeed.current = typingSpeed;
 
   const handleType = useCallback(() => {
-    const { dataText } = props;
-    const i = refLoopNum.current % dataText.length;
-    const fullText = dataText[i];
+    const { sentences } = props;
+    const i = refLoopNum.current % sentences.length;
+    const fullText = sentences[i];
 
     setText(
       refIsDeleting.current
@@ -68,6 +70,15 @@ const Typer = (props) => {
       </span>
     </>
   );
+};
+
+Typer.propTypes = {
+  cursorColor: PropTypes.string,
+  sentences: PropTypes.array.isRequired,
+};
+
+Typer.defaultProps = {
+  cursorColor: '#000000',
 };
 
 export default Typer;

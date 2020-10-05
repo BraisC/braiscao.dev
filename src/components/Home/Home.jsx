@@ -63,7 +63,7 @@ const Home = () => (
       <StyledTyper
         cursorColor="#71e2a6"
         pauseTimer={1000}
-        dataText={['a web developer.', 'from Spain.', 'passionate.', 'a geek.']}
+        sentences={['a web developer.', 'from Spain.', 'passionate.', 'a geek.']}
       />
     </StyledSubTitle>
 
