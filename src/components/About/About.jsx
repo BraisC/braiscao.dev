@@ -23,17 +23,16 @@ const About = () => {
 
   return (
     <Section title="about" subTitle="In case you want to know me">
-      <Bio>
-        <MDXProvider
-          components={{
-            Stack,
-            /* Inline components, I could have defined styled components outside if I wanted */
-            span: (props) => <span {...props} style={{ color: 'var(--color-primary)' }} />,
-          }}
-        >
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </MDXProvider>
-      </Bio>
+      <MDXProvider
+        components={{
+          Stack,
+          /* Inline components, I could have defined styled components outside if I wanted */
+          span: (props) => <span {...props} style={{ color: 'var(--color-primary)' }} />,
+        }}
+      >
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </MDXProvider>
+
       <Button href={curriculum} target="_blank" rel="noreferrer">
         Check my CV
       </Button>
