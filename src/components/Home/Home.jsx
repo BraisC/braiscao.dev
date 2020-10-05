@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import Button from '../Button';
 import Typer from './components/Typer';
+
+config.autoAddCss = false;
 
 const Wrapper = styled.div`
   display: flex;

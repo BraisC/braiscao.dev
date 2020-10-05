@@ -11,6 +11,7 @@ const SubTitle = styled.h3`
   color: var(--color-white);
   font-size: 1.4rem;
   font-weight: 500;
+  margin-bottom: 8rem;
 `;
 
 const SectionTitle = ({ title, subTitle }) => (
