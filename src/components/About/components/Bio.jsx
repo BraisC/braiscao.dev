@@ -5,7 +5,6 @@ const BioText = styled.p`
   font-size: 1.6rem;
   font-weight: 500;
   text-align: justify;
-  text-justify: inter-word;
 `;
 
 const Bio = ({ children }) => <BioText>{children}</BioText>;

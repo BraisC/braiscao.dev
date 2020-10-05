@@ -4,6 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 
 import Section from '../Section';
+import Bio from './components/Bio';
 
 const About = () => {
   const data = useStaticQuery(
@@ -20,6 +21,7 @@ const About = () => {
     <Section title="about" subTitle="In case you want to know me">
       <MDXProvider
         components={{
+          Bio,
           /* Inline components, I could have defined styled components outside if I wanted */
           p: (props) => <p {...props} style={{ marginBottom: '2rem' }} />,
           span: (props) => <span {...props} style={{ color: 'var(--color-primary)' }} />,
