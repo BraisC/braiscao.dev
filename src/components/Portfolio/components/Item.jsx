@@ -33,6 +33,7 @@ const TitleWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 0.4rem;
 `;
 
 const SubTitle = styled.h2`
