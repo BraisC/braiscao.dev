@@ -53,6 +53,7 @@ const overlayVariants = {
   open: {
     y: '0',
     transition: {
+      delay: 0.3,
       duration: 0.15,
       when: 'beforeChildren',
       staggerChildren: 0.1,
@@ -62,6 +63,7 @@ const overlayVariants = {
   close: {
     y: '100%',
     transition: {
+      delay: 0.1,
       duration: 0.15,
       when: 'afterChildren',
       staggerChildren: 0.1,
