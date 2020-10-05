@@ -10,14 +10,17 @@ const StyledButton = styled.a`
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 
   &:hover {
     background-color: #71e2a662;
   }
 `;
 
-const Button = ({ children, className }) => (
-  <StyledButton className={className}>{children}</StyledButton>
+const Button = ({ children, className, ...props }) => (
+  <StyledButton className={className} {...props}>
+    {children}
+  </StyledButton>
 );
 
 export default Button;
