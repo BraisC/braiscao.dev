@@ -23,6 +23,7 @@ const ContentWrapper = styled(motion.div)`
   flex-direction: column;
   padding-bottom: 3rem;
   background-color: var(--color-black);
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.55);
 `;
 
 const ModalButton = styled(Button)`
