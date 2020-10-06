@@ -93,15 +93,19 @@ const Item = ({ data }) => {
   const openModal = () => {
     setIsOpen(true);
     setIsVisible(false);
+    // I suppose this is fine as it is not React-created DOM
+    document.querySelector('body').classList.toggle('noscroll');
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    // I suppose this is fine as it is not React-created DOM
+    document.querySelector('body').classList.toggle('noscroll');
   };
 
   return (
     <Wrapper onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
-      <Image fluid={data.image.childImageSharp.fluid} />
+      <Image fluid={data.SmallImage.childImageSharp.fluid} />
       <AnimatePresence>
         {isVisible && (
           <Overlay
@@ -123,6 +127,8 @@ const Item = ({ data }) => {
       </AnimatePresence>
       {isOpen && (
         <Modal closeHandler={closeModal}>
+          <Image fluid={data.BigImage.childImageSharp.fluid} />
+
           <div>{data.title}</div>
         </Modal>
       )}

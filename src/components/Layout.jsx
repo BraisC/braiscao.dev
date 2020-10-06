@@ -56,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
 
   ::-moz-selection { background: var(--color-primary); }
   ::selection { background: var(--color-primary); }
+
+  .noscroll{
+    overflow: hidden;
+  }
 `;
 
 const Content = styled.main`
