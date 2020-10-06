@@ -6,12 +6,16 @@ import { useStaticQuery, graphql } from 'gatsby';
 const Wrapper = styled.header`
   padding: 1rem 2rem;
   position: fixed;
+  display: flex;
+  align-items: center;
   width: 100%;
+  height: 10rem;
   z-index: 3;
   background-color: var(--color-black);
 `;
 
 const Content = styled.div`
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
