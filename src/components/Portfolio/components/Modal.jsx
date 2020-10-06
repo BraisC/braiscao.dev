@@ -15,7 +15,7 @@ const Wrapper = styled(motion.div)`
   background-color: var(--color-translucid);
   padding: 10rem;
   margin-top: 1rem;
-  overflow: scroll;
+  overflow: auto;
   z-index: 4;
 `;
 
