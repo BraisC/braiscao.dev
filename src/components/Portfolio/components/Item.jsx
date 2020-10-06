@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../../Button';
+import Modal from './Modal';
 
 const Wrapper = styled.div`
   width: 33%;
@@ -87,6 +88,16 @@ const childVariants = {
 
 const Item = ({ data }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+    setIsVisible(false);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Wrapper onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
@@ -105,13 +116,17 @@ const Item = ({ data }) => {
               <SubTitle>{data.stack}</SubTitle>
             </TitleWrapper>
             <motion.div variants={childVariants}>
-              <StyledButton>More info</StyledButton>
+              <StyledButton onClick={openModal}>More info</StyledButton>
             </motion.div>
           </Overlay>
         )}
       </AnimatePresence>
+      {isOpen && (
+        <Modal closeHandler={closeModal}>
+          <div>{data.title}</div>
+        </Modal>
+      )}
     </Wrapper>
   );
 };
-
 export default Item;
