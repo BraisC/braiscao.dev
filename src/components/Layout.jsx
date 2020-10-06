@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     --color-white: #f4f4f4;
     --color-black: #0A2027;
     --color-primary: #71E2A6;
+    --color-translucid: #0a2027d8;
    }
 
   body {
