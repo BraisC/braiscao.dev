@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -63,32 +63,38 @@ const contentVariants = {
 };
 
 const Modal = (props) => {
-  const modalRoot = document.querySelector('#modal');
+  const modalRoot = useRef(null);
+
+  useEffect(() => {
+    modalRoot.current = document.querySelector('#modal');
+  }, []);
 
   const handleClick = (e) => {
     e.stopPropagation();
   };
 
-  return createPortal(
-    <AnimatePresence>
-      {props.isOpen && (
-        <Wrapper
-          onClick={props.closeHandler}
-          key="modal"
-          initial="close"
-          animate="open"
-          exit="close"
-          variants={modalVariants}
-        >
-          <ContentWrapper onClick={handleClick} variants={contentVariants}>
-            <ModalButton onClick={props.closeHandler}>Close</ModalButton>
-            {props.children}
-          </ContentWrapper>
-        </Wrapper>
-      )}
-    </AnimatePresence>,
-    modalRoot
-  );
+  return modalRoot.current
+    ? createPortal(
+        <AnimatePresence>
+          {props.isOpen && (
+            <Wrapper
+              onClick={props.closeHandler}
+              key="modal"
+              initial="close"
+              animate="open"
+              exit="close"
+              variants={modalVariants}
+            >
+              <ContentWrapper onClick={handleClick} variants={contentVariants}>
+                <ModalButton onClick={props.closeHandler}>Close</ModalButton>
+                {props.children}
+              </ContentWrapper>
+            </Wrapper>
+          )}
+        </AnimatePresence>,
+        modalRoot.current
+      )
+    : null;
 };
 
 export default Modal;
