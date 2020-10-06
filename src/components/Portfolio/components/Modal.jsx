@@ -7,8 +7,9 @@ const Wrapper = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: red;
-  padding: 12rem;
+  background-color: var(--color-black);
+  padding: 10rem;
+  overflow: scroll;
 `;
 
 const Modal = (props) => {
@@ -16,7 +17,9 @@ const Modal = (props) => {
 
   return createPortal(
     <Wrapper>
-      <button onClick={props.closeHandler}>CLOSE</button>
+      <button style={{ position: 'fixed', top: '12rem', zIndex: '3' }} onClick={props.closeHandler}>
+        CLOSE
+      </button>
       {props.children}
     </Wrapper>,
     modalRoot

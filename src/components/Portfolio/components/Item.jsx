@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Img from 'gatsby-image';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../../Button';
@@ -94,30 +95,30 @@ const Item = ({ data }) => {
     setIsOpen(true);
     setIsVisible(false);
     // I suppose this is fine as it is not React-created DOM
-    document.querySelector('body').classList.toggle('noscroll');
+    document.querySelector('body').classList.add('noscroll');
   };
 
   const closeModal = () => {
     setIsOpen(false);
     // I suppose this is fine as it is not React-created DOM
-    document.querySelector('body').classList.toggle('noscroll');
+    document.querySelector('body').classList.remove('noscroll');
   };
 
   return (
     <Wrapper onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
-      <Image fluid={data.SmallImage.childImageSharp.fluid} />
+      <Image fluid={data.frontmatter.SmallImage.childImageSharp.fluid} />
       <AnimatePresence>
         {isVisible && (
           <Overlay
-            key={data.title}
+            key={data.frontmatter.title}
             initial="close"
             animate="open"
             exit="close"
             variants={overlayVariants}
           >
             <TitleWrapper variants={childVariants}>
-              <Title>{data.title}</Title>
-              <SubTitle>{data.stack}</SubTitle>
+              <Title>{data.frontmatter.title}</Title>
+              <SubTitle>{data.frontmatter.stack}</SubTitle>
             </TitleWrapper>
             <motion.div variants={childVariants}>
               <StyledButton onClick={openModal}>More info</StyledButton>
@@ -127,9 +128,9 @@ const Item = ({ data }) => {
       </AnimatePresence>
       {isOpen && (
         <Modal closeHandler={closeModal}>
-          <Image fluid={data.BigImage.childImageSharp.fluid} />
-
-          <div>{data.title}</div>
+          <div>{data.frontmatter.title}</div>
+          <Image fluid={data.frontmatter.BigImage.childImageSharp.fluid} />
+          <MDXRenderer>{data.body}</MDXRenderer>
         </Modal>
       )}
     </Wrapper>

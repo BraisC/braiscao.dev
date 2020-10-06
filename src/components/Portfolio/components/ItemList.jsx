@@ -20,12 +20,20 @@ const ItemList = () => {
         ) {
           edges {
             node {
+              body
               frontmatter {
                 title
                 stack
-                image {
+                SmallImage: image {
                   childImageSharp {
-                    fluid(maxWidth: 800, quality: 80) {
+                    fluid(maxWidth: 600, quality: 80) {
+                      ...GatsbyImageSharpFluid_tracedSVG
+                    }
+                  }
+                }
+                BigImage: image {
+                  childImageSharp {
+                    fluid(maxWidth: 2000, quality: 80) {
                       ...GatsbyImageSharpFluid_tracedSVG
                     }
                   }
@@ -41,7 +49,7 @@ const ItemList = () => {
   return (
     <Wrapper>
       {data.allMdx.edges.map((item) => (
-        <Item key={item.node.frontmatter.title} data={item.node.frontmatter} />
+        <Item key={item.node.frontmatter.title} data={item.node} />
       ))}
     </Wrapper>
   );
