@@ -16,6 +16,7 @@ const Wrapper = styled(motion.div)`
   padding: 10rem;
   margin-top: 1rem;
   overflow: scroll;
+  z-index: 4;
 `;
 
 const ContentWrapper = styled(motion.div)`
@@ -23,7 +24,7 @@ const ContentWrapper = styled(motion.div)`
   flex-direction: column;
   padding-bottom: 3rem;
   background-color: var(--color-black);
-  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.55);
+  box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.55);
 `;
 
 const ModalButton = styled(Button)`
