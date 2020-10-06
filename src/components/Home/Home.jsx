@@ -74,6 +74,7 @@ const Home = () => (
           'passionate.',
           'an inconformist.',
           'a geek.',
+          'always learning.',
         ]}
       />
     </StyledSubTitle>
