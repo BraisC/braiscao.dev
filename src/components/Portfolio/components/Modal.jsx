@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../../Button';
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
   overflow: scroll;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
@@ -29,19 +30,63 @@ const ModalButton = styled(Button)`
   align-self: flex-end;
 `;
 
+const modalVariants = {
+  close: {
+    opacity: 0,
+    transition: {
+      duration: 0.15,
+      when: 'afterChildren',
+    },
+  },
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.15,
+      when: 'beforeChildren',
+    },
+  },
+};
+
+const contentVariants = {
+  close: {
+    scale: 0.1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  open: {
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const Modal = (props) => {
   const modalRoot = document.querySelector('#modal');
+
   const handleClick = (e) => {
     e.stopPropagation();
   };
 
   return createPortal(
-    <Wrapper onClick={props.closeHandler}>
-      <ContentWrapper onClick={handleClick}>
-        <ModalButton onClick={props.closeHandler}>Close</ModalButton>
-        {props.children}
-      </ContentWrapper>
-    </Wrapper>,
+    <AnimatePresence>
+      {props.isOpen && (
+        <Wrapper
+          onClick={props.closeHandler}
+          key="modal"
+          initial="close"
+          animate="open"
+          exit="close"
+          variants={modalVariants}
+        >
+          <ContentWrapper onClick={handleClick} variants={contentVariants}>
+            <ModalButton onClick={props.closeHandler}>Close</ModalButton>
+            {props.children}
+          </ContentWrapper>
+        </Wrapper>
+      )}
+    </AnimatePresence>,
     modalRoot
   );
 };

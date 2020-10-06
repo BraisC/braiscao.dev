@@ -160,51 +160,63 @@ const Item = ({ data }) => {
     document.querySelector('body').classList.remove('noscroll');
   };
 
+  const handleMove = () => {
+    !isOpen && setIsVisible(true);
+  };
+
+  console.log(isOpen);
   return (
-    <Wrapper onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
-      <Image fluid={data.frontmatter.SmallImage.childImageSharp.fluid} />
-      <AnimatePresence>
-        {isVisible && (
-          <Overlay
-            key={data.frontmatter.title}
-            initial="close"
-            animate="open"
-            exit="close"
-            variants={overlayVariants}
-          >
-            <TitleWrapper variants={childVariants}>
-              <Title>{data.frontmatter.title}</Title>
-              <SubTitle>{data.frontmatter.stack}</SubTitle>
-            </TitleWrapper>
-            <motion.div variants={childVariants}>
-              <StyledButton onClick={openModal}>More info</StyledButton>
-            </motion.div>
-          </Overlay>
-        )}
-      </AnimatePresence>
-      {isOpen && (
-        <Modal closeHandler={closeModal}>
-          <ModalContent>
-            <ModalImage fluid={data.frontmatter.BigImage.childImageSharp.fluid} />
-            <ModalTitle>{data.frontmatter.title}</ModalTitle>
-            <ModalSubTitle>{data.frontmatter.stack}</ModalSubTitle>
-            <MDXProvider components={{ ModalText }}>
-              <MDXRenderer>{data.body}</MDXRenderer>
-            </MDXProvider>
-            <ModalButtons>
+    <>
+      <Wrapper
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseMove={handleMove}
+        onMouseLeave={() => setIsVisible(false)}
+      >
+        <Image fluid={data.frontmatter.SmallImage.childImageSharp.fluid} />
+        <AnimatePresence>
+          {isVisible && (
+            <Overlay
+              key={data.frontmatter.title}
+              initial="close"
+              animate="open"
+              exit="close"
+              variants={overlayVariants}
+            >
+              <TitleWrapper variants={childVariants}>
+                <Title>{data.frontmatter.title}</Title>
+                <SubTitle>{data.frontmatter.stack}</SubTitle>
+              </TitleWrapper>
+              <motion.div variants={childVariants}>
+                <StyledButton onClick={openModal}>More info</StyledButton>
+              </motion.div>
+            </Overlay>
+          )}
+        </AnimatePresence>
+      </Wrapper>
+
+      <Modal closeHandler={closeModal} isOpen={isOpen}>
+        <ModalContent>
+          <ModalImage fluid={data.frontmatter.BigImage.childImageSharp.fluid} />
+          <ModalTitle>{data.frontmatter.title}</ModalTitle>
+          <ModalSubTitle>{data.frontmatter.stack}</ModalSubTitle>
+          <MDXProvider components={{ ModalText }}>
+            <MDXRenderer>{data.body}</MDXRenderer>
+          </MDXProvider>
+          <ModalButtons>
+            {data.frontmatter.link && (
               <ModalButton href={data.frontmatter.link} target="_blank" rel="noreferrer">
                 See it live
               </ModalButton>
-              {data.frontmatter.repo && (
-                <ModalButton href={data.frontmatter.repo} target="_blank" rel="noreferrer">
-                  Github Repo
-                </ModalButton>
-              )}
-            </ModalButtons>
-          </ModalContent>
-        </Modal>
-      )}
-    </Wrapper>
+            )}
+            {data.frontmatter.repo && (
+              <ModalButton href={data.frontmatter.repo} target="_blank" rel="noreferrer">
+                Github Repo
+              </ModalButton>
+            )}
+          </ModalButtons>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 export default Item;
