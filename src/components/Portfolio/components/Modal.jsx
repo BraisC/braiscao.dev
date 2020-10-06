@@ -25,16 +25,19 @@ const ContentWrapper = styled.div`
 `;
 
 const ModalButton = styled(Button)`
-  margin-bottom: 2rem;
+  margin: 2rem;
   align-self: flex-end;
 `;
 
 const Modal = (props) => {
   const modalRoot = document.querySelector('#modal');
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
 
   return createPortal(
-    <Wrapper>
-      <ContentWrapper>
+    <Wrapper onClick={props.closeHandler}>
+      <ContentWrapper onClick={handleClick}>
         <ModalButton onClick={props.closeHandler}>Close</ModalButton>
         {props.children}
       </ContentWrapper>

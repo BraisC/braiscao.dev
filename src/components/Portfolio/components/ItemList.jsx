@@ -24,6 +24,8 @@ const ItemList = () => {
               frontmatter {
                 title
                 stack
+                link
+                repo
                 SmallImage: image {
                   childImageSharp {
                     fluid(maxWidth: 600, quality: 80) {

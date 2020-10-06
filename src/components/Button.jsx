@@ -11,6 +11,7 @@ const StyledButton = styled.a`
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  display: inline-block;
 
   &:hover {
     background-color: #71e2a662;

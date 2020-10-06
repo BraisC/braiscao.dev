@@ -78,13 +78,15 @@ const ModalSubTitle = styled.h3`
   text-transform: uppercase;
   font-weight: 500;
   color: var(--color-primary);
+  padding: 0 3rem;
+  text-align: center;
 `;
 
 const ModalText = styled.div`
   font-size: 1.5rem;
   font-weight: 500;
   text-align: justify;
-  padding: 2rem;
+  padding: 2rem 3rem;
 
   & p {
     margin-bottom: 2rem;
@@ -93,6 +95,16 @@ const ModalText = styled.div`
   & span {
     color: var(--color-primary);
   }
+`;
+
+const ModalButton = styled(Button)`
+  margin: 1rem;
+`;
+
+const ModalButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const overlayVariants = {
@@ -179,7 +191,16 @@ const Item = ({ data }) => {
             <MDXProvider components={{ ModalText }}>
               <MDXRenderer>{data.body}</MDXRenderer>
             </MDXProvider>
-            <Button href={data.frontmatter.link}>See it live</Button>
+            <ModalButtons>
+              <ModalButton href={data.frontmatter.link} target="_blank" rel="noreferrer">
+                See it live
+              </ModalButton>
+              {data.frontmatter.repo && (
+                <ModalButton href={data.frontmatter.repo} target="_blank" rel="noreferrer">
+                  Github Repo
+                </ModalButton>
+              )}
+            </ModalButtons>
           </ModalContent>
         </Modal>
       )}
