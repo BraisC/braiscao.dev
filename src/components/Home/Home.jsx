@@ -16,8 +16,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   padding: 8rem 0;
+
+  @media only screen and (max-width: 900px) {
+    height: var(--app-height);
+  }
 `;
 
 const StyledHeader = styled.h1`

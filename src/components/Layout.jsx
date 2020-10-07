@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -6,6 +6,11 @@ import Header from './Header';
 import Footer from './Footer';
 
 const GlobalStyle = createGlobalStyle`
+  
+  :root {
+    --app-height: 100%;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -76,14 +81,28 @@ const Content = styled.main`
   padding: 0 4rem;
 `;
 
-const Layout = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <Header />
-    <Content>{children}</Content>
-    <Footer />
-  </>
-);
+const Layout = ({ children }) => {
+  //Fix for height in mobile https://stackoverflow.com/a/50683190
+
+  const appHeight = () => {
+    document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+  };
+
+  useEffect(() => {
+    appHeight();
+    window.addEventListener('resize', appHeight);
+    return () => window.removeEventListener('resize', appHeight);
+  }, []);
+
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+      <Content>{children}</Content>
+      <Footer />
+    </>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
