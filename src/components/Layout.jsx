@@ -78,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Content = styled.main`
+const Content = styled(motion.main)`
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 4rem;
@@ -120,7 +120,13 @@ const Layout = ({ children }) => {
       <HeaderWrapper initial={{ y: '-100%' }} animate={{ y: '0', transition: { delay: '0.3' } }}>
         {isMobile ? <MobileHeader /> : <Header />}
       </HeaderWrapper>
-      <Content>{children}</Content>
+      <Content
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.3 }}
+      >
+        {children}
+      </Content>
       <Footer />
     </>
   );
