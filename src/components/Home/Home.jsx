@@ -125,12 +125,12 @@ const Home = () => (
           pauseTimer={1000}
           sentences={[
             'a web developer.',
-            'mastering Javascript.',
             'from Spain.',
-            'passionate.',
+            'a self-learner.',
+            'mastering Javascript.',
             'an inconformist.',
             'a geek.',
-            'always learning.',
+            'always learning...',
           ]}
         />
       </StyledSubTitle>
