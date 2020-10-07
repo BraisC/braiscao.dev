@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 
+import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import MobileHeader from './MobileHeader';
@@ -83,6 +84,13 @@ const Content = styled.main`
   padding: 0 4rem;
 `;
 
+const HeaderWrapper = styled(motion.div)`
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  height: 10rem;
+`;
+
 const Layout = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -109,7 +117,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      {isMobile ? <MobileHeader /> : <Header />}
+      <HeaderWrapper initial={{ y: '-100%' }} animate={{ y: '0', transition: { delay: '0.3' } }}>
+        {isMobile ? <MobileHeader /> : <Header />}
+      </HeaderWrapper>
       <Content>{children}</Content>
       <Footer />
     </>
