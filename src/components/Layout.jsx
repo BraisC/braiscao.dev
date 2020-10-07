@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
+import MobileHeader from './MobileHeader';
 
 const GlobalStyle = createGlobalStyle`
   
@@ -32,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     --color-black: #0A2027;
     --color-primary: #71E2A6;
     --color-translucid: #0a2027d8;
+    --color-red: #ff5959;
 
     @media only screen and (max-width: 75em){
         font-size: 56.25%;
@@ -82,8 +84,20 @@ const Content = styled.main`
 `;
 
 const Layout = ({ children }) => {
-  //Fix for height in mobile https://stackoverflow.com/a/50683190
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 60em)');
+    const changeMobile = () => {
+      mediaQuery.matches ? setIsMobile(true) : setIsMobile(false);
+    };
+    //TODO change this deprecated way of listen
+    mediaQuery.addListener(changeMobile);
+    changeMobile();
+    return () => mediaQuery.removeListener(changeMobile);
+  }, []);
+
+  //Fix for height in mobile https://stackoverflow.com/a/50683190
   const appHeight = () => {
     document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
   };
@@ -97,7 +111,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Content>{children}</Content>
       <Footer />
     </>

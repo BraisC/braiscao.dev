@@ -16,7 +16,7 @@ const Wrapper = styled(motion.div)`
   padding: 10rem;
   margin-top: 1rem;
   overflow: auto;
-  z-index: 4;
+  z-index: 5;
   @media only screen and (max-width: 600px) {
     padding: 3rem 0;
   }
