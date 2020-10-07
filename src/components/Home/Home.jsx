@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Element, Link } from 'react-scroll';
 import Button from '../Button';
 import Typer from './components/Typer';
 
@@ -52,36 +53,55 @@ const Arrow = styled(FontAwesomeIcon)`
 `;
 
 const StyledButton = styled(Button)`
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background-color: #71e2a662;
+  }
   &:hover + ${Arrow} {
     transform: translateY(1rem);
   }
 `;
 
 const Home = () => (
-  <Wrapper>
-    <StyledHeader>
-      Hi, my name is <StyledName>Brais</StyledName>
-    </StyledHeader>
-    <StyledSubTitle>
-      I am{' '}
-      <StyledTyper
-        cursorColor="#71e2a6"
-        pauseTimer={1000}
-        sentences={[
-          'a web developer.',
-          'mastering Javascript.',
-          'from Spain.',
-          'passionate.',
-          'an inconformist.',
-          'a geek.',
-          'always learning.',
-        ]}
-      />
-    </StyledSubTitle>
+  <>
+    <Element name="home" />
+    <Wrapper>
+      <StyledHeader>
+        Hi, my name is <StyledName>Brais</StyledName>
+      </StyledHeader>
+      <StyledSubTitle>
+        I am{' '}
+        <StyledTyper
+          cursorColor="#71e2a6"
+          pauseTimer={1000}
+          sentences={[
+            'a web developer.',
+            'mastering Javascript.',
+            'from Spain.',
+            'passionate.',
+            'an inconformist.',
+            'a geek.',
+            'always learning.',
+          ]}
+        />
+      </StyledSubTitle>
 
-    <StyledButton>Let me show you my work</StyledButton>
-    <Arrow icon={faChevronDown} />
-  </Wrapper>
+      <StyledButton as={Link} to="portfolio" spy smooth duration={500}>
+        Let me show you my work
+      </StyledButton>
+      <Arrow icon={faChevronDown} />
+    </Wrapper>
+  </>
 );
 
 export default Home;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'react-scroll';
 
 const Wrapper = styled.header`
   padding: 1rem 2rem;
@@ -34,7 +35,7 @@ const MenuItem = styled.li`
   margin: 0.5rem;
 `;
 
-const MenuItemLink = styled.a`
+const MenuItemLink = styled(Link)`
   padding: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -87,16 +88,24 @@ const Header = () => {
         </HeaderTitle>
         <Menu>
           <MenuItem>
-            <MenuItemLink>Home</MenuItemLink>
+            <MenuItemLink activeClass="active" to="home" spy smooth duration={500}>
+              Home
+            </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink>Portfolio</MenuItemLink>
+            <MenuItemLink activeClass="active" to="portfolio" spy smooth duration={500}>
+              Portfolio
+            </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink>About</MenuItemLink>
+            <MenuItemLink activeClass="active" to="about" spy smooth duration={500}>
+              About
+            </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink>Contact</MenuItemLink>
+            <MenuItemLink activeClass="active" to="contact" spy smooth duration={500}>
+              Contact
+            </MenuItemLink>
           </MenuItem>
         </Menu>
       </Content>

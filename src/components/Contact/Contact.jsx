@@ -6,6 +6,7 @@ import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
+import { Element } from 'react-scroll';
 import Section from '../Section';
 
 config.autoAddCss = false;
@@ -34,28 +35,31 @@ const Link = styled.a`
 `;
 
 const Contact = () => (
-  <Section title="contact" subTitle="You can find me at this places">
-    <Wrapper>
-      <Link href="https://t.me/BraisDev" target="_blank" rel="noreferrer">
-        <Icon icon={faTelegram} />
-      </Link>
-      <Link href="https://github.com/BraisC" target="_blank" rel="noreferrer">
-        <Icon icon={faGithub} />
-      </Link>
-      <Link href="https://www.instagram.com/braiscao.dev/" target="_blank" rel="noreferrer">
-        <Icon icon={faInstagram} />
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/brais-cao-gonzalez/?locale=en_US"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Icon icon={faLinkedin} />
-      </Link>
-      <Link href="mailto:braiscao.dev@gmail.com" target="_blank" rel="noreferrer">
-        <Icon icon={faEnvelopeSquare} />
-      </Link>
-    </Wrapper>
-  </Section>
+  <>
+    <Element name="contact" />
+    <Section title="contact" subTitle="You can find me at this places">
+      <Wrapper>
+        <Link href="https://t.me/BraisDev" target="_blank" rel="noreferrer">
+          <Icon icon={faTelegram} />
+        </Link>
+        <Link href="https://github.com/BraisC" target="_blank" rel="noreferrer">
+          <Icon icon={faGithub} />
+        </Link>
+        <Link href="https://www.instagram.com/braiscao.dev/" target="_blank" rel="noreferrer">
+          <Icon icon={faInstagram} />
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/brais-cao-gonzalez/?locale=en_US"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon icon={faLinkedin} />
+        </Link>
+        <Link href="mailto:braiscao.dev@gmail.com" target="_blank" rel="noreferrer">
+          <Icon icon={faEnvelopeSquare} />
+        </Link>
+      </Wrapper>
+    </Section>
+  </>
 );
 export default Contact;
