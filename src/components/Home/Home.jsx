@@ -130,7 +130,7 @@ const Home = () => (
             'mastering Javascript.',
             'an inconformist.',
             'a geek.',
-            'always learning...',
+            'always learning!',
           ]}
         />
       </StyledSubTitle>
