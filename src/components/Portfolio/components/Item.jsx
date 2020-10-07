@@ -186,7 +186,6 @@ const Item = ({ data }) => {
     !isOpen && setIsVisible(true);
   };
 
-  console.log(isOpen);
   return (
     <>
       <Wrapper
