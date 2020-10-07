@@ -104,8 +104,6 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     appHeight();
-    window.addEventListener('resize', appHeight);
-    return () => window.removeEventListener('resize', appHeight);
   }, []);
 
   return (
