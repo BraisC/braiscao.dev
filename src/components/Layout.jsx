@@ -92,8 +92,8 @@ const Layout = ({ children }) => {
       mediaQuery.matches ? setIsMobile(true) : setIsMobile(false);
     };
     //TODO change this deprecated way of listen
-    mediaQuery.addListener(changeMobile);
     changeMobile();
+    mediaQuery.addListener(changeMobile);
     return () => mediaQuery.removeListener(changeMobile);
   }, []);
 
