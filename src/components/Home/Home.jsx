@@ -24,6 +24,18 @@ const StyledHeader = styled.h1`
   font-size: 9.6rem;
   font-weight: 700;
   width: 100%;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 8rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 5rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 4.5rem;
+  }
 `;
 
 const StyledName = styled.span`
@@ -38,11 +50,29 @@ const StyledSubTitle = styled.p`
   margin-top: 1.6rem;
   margin-bottom: 12rem;
   width: 100%;
+  @media only screen and (max-width: 900px) {
+    font-size: 4rem;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 3rem;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 2.5rem;
+  }
 `;
 const StyledTyper = styled(Typer)`
   color: var(--color-primary);
   font-size: 6.4rem;
   font-weight: 700;
+  @media only screen and (max-width: 900px) {
+    font-size: 4rem;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 3rem;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 2.5rem;
+  }
 `;
 const Arrow = styled(FontAwesomeIcon)`
   font-size: 2.4rem;

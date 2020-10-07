@@ -27,6 +27,13 @@ const GlobalStyle = createGlobalStyle`
     --color-black: #0A2027;
     --color-primary: #71E2A6;
     --color-translucid: #0a2027d8;
+
+    @media only screen and (max-width: 75em){
+        font-size: 56.25%;
+    }
+    @media only screen and (max-width: 56.25em) {
+        font-size: 50%;
+    }
    }
 
   body {
