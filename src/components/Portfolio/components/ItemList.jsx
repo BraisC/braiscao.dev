@@ -26,6 +26,7 @@ const ItemList = () => {
                 stack
                 link
                 repo
+                number
                 SmallImage: image {
                   childImageSharp {
                     fluid(maxWidth: 520, quality: 75) {
@@ -47,6 +48,8 @@ const ItemList = () => {
       }
     `
   );
+
+  console.log(data);
 
   return (
     <Wrapper>
