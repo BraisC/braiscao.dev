@@ -7,7 +7,6 @@ import SideBar from './SideBar';
 
 const Wrapper = styled.header`
   padding: 1rem 2rem;
-  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

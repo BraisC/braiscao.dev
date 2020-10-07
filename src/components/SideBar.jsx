@@ -37,7 +37,7 @@ const Wrapper = styled(motion.div)`
   transition: background-color 0.2s ease, color 0.2s ease;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 10rem);
   z-index: 3;
   background-color: var(--color-translucid);
 `;
