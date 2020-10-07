@@ -79,7 +79,7 @@ const thirdLine = {
   open: { rotate: -45, backgroundColor: 'var(--color-red)' },
 };
 
-const MobileHeader = (props) => {
+const MobileHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = () => {
