@@ -71,7 +71,7 @@ const Header = () => {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fixed(width: 70, quality: 100, traceSVG: { threshold: 254 }) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }

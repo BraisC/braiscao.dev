@@ -28,15 +28,15 @@ const ItemList = () => {
                 repo
                 SmallImage: image {
                   childImageSharp {
-                    fluid(maxWidth: 600, quality: 80) {
-                      ...GatsbyImageSharpFluid_tracedSVG
+                    fluid(maxWidth: 520, quality: 75) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }
                 }
                 BigImage: image {
                   childImageSharp {
-                    fluid(maxWidth: 2000, quality: 80) {
-                      ...GatsbyImageSharpFluid_tracedSVG
+                    fluid(maxWidth: 1000, quality: 80) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }
                 }
