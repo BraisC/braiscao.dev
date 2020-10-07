@@ -17,6 +17,9 @@ const Wrapper = styled(motion.div)`
   margin-top: 1rem;
   overflow: auto;
   z-index: 4;
+  @media only screen and (max-width: 600px) {
+    padding: 3rem 0;
+  }
 `;
 
 const ContentWrapper = styled(motion.div)`
@@ -25,6 +28,9 @@ const ContentWrapper = styled(motion.div)`
   padding-bottom: 3rem;
   background-color: var(--color-black);
   box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.55);
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const ModalButton = styled(Button)`

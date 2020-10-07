@@ -73,6 +73,14 @@ const ModalContent = styled.article`
   width: 100%;
   max-width: 50rem;
   position: relative;
+
+  @media only screen and (max-width: 900px) {
+    max-width: 60rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    max-width: 100%;
+  }
 `;
 
 const ModalImage = styled(Img)`
