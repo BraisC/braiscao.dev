@@ -108,9 +108,9 @@ const MobileHeader = () => {
         </HeaderTitle>
 
         <Hamburger initial={false} animate={isMenuOpen ? 'open' : 'closed'} onClick={handleClick}>
-          <HamburgerLine style={{ originX: '0.2rem' }} variants={firstLine} />
+          <HamburgerLine style={{ originX: '0.15rem' }} variants={firstLine} />
           <HamburgerLine variants={secondLine} />
-          <HamburgerLine style={{ originX: '0.2rem' }} variants={thirdLine} />
+          <HamburgerLine style={{ originX: '0.15rem' }} variants={thirdLine} />
         </Hamburger>
       </Wrapper>
       <AnimatePresence>
