@@ -78,12 +78,17 @@ const StyledTyper = styled(Typer)`
     font-size: 2.5rem;
   }
 `;
-const Arrow = styled(FontAwesomeIcon)`
+
+const ArrowLink = styled(Link)`
   font-size: 2.4rem;
   margin-top: 3rem;
   transition: all 0.2s ease;
   position: absolute;
   bottom: 3rem;
+`;
+
+const Arrow = styled(FontAwesomeIcon)`
+  display: block;
 `;
 
 const StyledButton = styled(Button)`
@@ -133,7 +138,9 @@ const Home = () => (
       <StyledButton as={Link} to="portfolio" spy smooth duration={500}>
         Let me show you my work
       </StyledButton>
-      <Arrow icon={faChevronDown} />
+      <ArrowLink to="portfolio" spy smooth duration={500}>
+        <Arrow icon={faChevronDown} />
+      </ArrowLink>
     </Wrapper>
   </>
 );
