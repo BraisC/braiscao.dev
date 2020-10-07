@@ -98,7 +98,7 @@ const Header = () => {
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink activeClass="active" to="about" spy smooth duration={500}>
+            <MenuItemLink activeClass="active" to="about" spy smooth duration={500} offset={-100}>
               About
             </MenuItemLink>
           </MenuItem>
