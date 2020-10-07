@@ -14,10 +14,7 @@ const ItemList = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allMdx(
-          filter: { fileAbsolutePath: { regex: "/content/portfolio/" } }
-          sort: { fields: frontmatter___number, order: DESC }
-        ) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/content/portfolio/" } }) {
           edges {
             node {
               body
@@ -48,8 +45,6 @@ const ItemList = () => {
       }
     `
   );
-
-  console.log(data);
 
   return (
     <Wrapper>
