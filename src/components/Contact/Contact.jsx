@@ -39,23 +39,44 @@ const Contact = () => (
     <Element name="contact" />
     <Section title="contact" subTitle="You can find me at this places">
       <Wrapper>
-        <Link href="https://t.me/BraisDev" target="_blank" rel="noreferrer">
+        <Link
+          href="https://t.me/BraisDev"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Telegram Link"
+        >
           <Icon icon={faTelegram} />
         </Link>
-        <Link href="https://github.com/BraisC" target="_blank" rel="noreferrer">
+        <Link
+          href="https://github.com/BraisC"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Github Link"
+        >
           <Icon icon={faGithub} />
         </Link>
-        <Link href="https://www.instagram.com/braiscao.dev/" target="_blank" rel="noreferrer">
+        <Link
+          href="https://www.instagram.com/braiscao.dev/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram Link"
+        >
           <Icon icon={faInstagram} />
         </Link>
         <Link
           href="https://www.linkedin.com/in/brais-cao-gonzalez/?locale=en_US"
           target="_blank"
           rel="noreferrer"
+          aria-label="Linkedin Link"
         >
           <Icon icon={faLinkedin} />
         </Link>
-        <Link href="mailto:braiscao.dev@gmail.com" target="_blank" rel="noreferrer">
+        <Link
+          href="mailto:braiscao.dev@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Mail Link"
+        >
           <Icon icon={faEnvelopeSquare} />
         </Link>
       </Wrapper>
