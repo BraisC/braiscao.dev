@@ -37,7 +37,7 @@ const Wrapper = styled(motion.div)`
   transition: background-color 0.2s ease, color 0.2s ease;
   position: fixed;
   width: 100%;
-  height: calc(var(--app-height) - 20rem);
+  height: calc(var(--app-height) - 10rem);
   z-index: 3;
   background-color: var(--color-translucid);
 `;
@@ -47,6 +47,7 @@ const Nav = styled.nav`
   text-transform: uppercase;
   font-size: 4rem;
   font-weight: 700;
+  transform: translateY(-5rem);
 `;
 
 const Menu = styled.ul`
