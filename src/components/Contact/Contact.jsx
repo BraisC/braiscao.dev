@@ -37,7 +37,7 @@ const Link = styled.a`
 const Contact = () => (
   <>
     <Element name="contact" />
-    <Section title="contact" subTitle="You can find me at this places">
+    <Section title="contact" subTitle="You can find me at these places">
       <Wrapper>
         <Link
           href="https://t.me/BraisDev"

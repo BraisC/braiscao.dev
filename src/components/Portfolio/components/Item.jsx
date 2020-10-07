@@ -133,8 +133,8 @@ const overlayVariants = {
   open: {
     y: '0',
     transition: {
-      delay: 0.3,
-      duration: 0.15,
+      delay: 0.1,
+      duration: 0.1,
       when: 'beforeChildren',
       staggerChildren: 0.1,
       bounce: 0,
@@ -144,7 +144,7 @@ const overlayVariants = {
     y: '100%',
     transition: {
       delay: 0.1,
-      duration: 0.15,
+      duration: 0.1,
       when: 'afterChildren',
       staggerChildren: 0.1,
       bounce: 0,

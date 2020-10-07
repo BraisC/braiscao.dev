@@ -85,6 +85,7 @@ const ArrowLink = styled(Link)`
   transition: all 0.2s ease;
   position: absolute;
   bottom: 3rem;
+  cursor: pointer;
 `;
 
 const Arrow = styled(FontAwesomeIcon)`
