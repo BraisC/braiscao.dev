@@ -15,7 +15,10 @@ const ItemList = () => {
     graphql`
       query {
         allMdx(
-          filter: { fileAbsolutePath: { regex: "/content/portfolio/" } }
+          filter: {
+            fileAbsolutePath: { regex: "/content/portfolio/" }
+            frontmatter: { number: { ne: null } }
+          }
           sort: { fields: frontmatter___number, order: DESC }
         ) {
           edges {
@@ -26,6 +29,7 @@ const ItemList = () => {
                 stack
                 link
                 repo
+                number
                 SmallImage: image {
                   childImageSharp {
                     fluid(maxWidth: 520, quality: 75) {
