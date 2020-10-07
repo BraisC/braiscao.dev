@@ -16,7 +16,7 @@ const ItemList = () => {
       query {
         allMdx(
           filter: { fileAbsolutePath: { regex: "/content/portfolio/" } }
-          sort: { fields: frontmatter___number, order: DESC }
+          sort: { fields: fileAbsolutePath, order: DESC }
         ) {
           edges {
             node {
@@ -48,6 +48,8 @@ const ItemList = () => {
       }
     `
   );
+
+  console.log(data);
 
   return (
     <Wrapper>
