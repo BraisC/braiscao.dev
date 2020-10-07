@@ -11,6 +11,13 @@ const Wrapper = styled.div`
   width: 33%;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: 900px) {
+    width: 50%;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Image = styled(Img)`
@@ -28,6 +35,13 @@ const Overlay = styled(motion.article)`
   width: 100%;
   padding: 4rem 3rem;
   background-color: var(--color-translucid);
+  @media only screen and (max-width: 900px) {
+    padding: 5rem 4rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 7rem 4rem;
+  }
 `;
 
 const TitleWrapper = styled(motion.div)`
