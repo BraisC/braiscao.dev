@@ -52,8 +52,6 @@ const ItemList = () => {
     `
   );
 
-  console.log(data);
-
   return (
     <Wrapper>
       {data.allMdx.edges.map((item) => (
