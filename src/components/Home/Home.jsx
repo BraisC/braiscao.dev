@@ -107,7 +107,7 @@ const StyledButton = styled(Button)`
   &:hover {
     background-color: #71e2a662;
   }
-  &:hover + ${Arrow} {
+  &:hover + ${ArrowLink} {
     transform: translateY(1rem);
   }
 `;
