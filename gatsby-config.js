@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Brais Cao  - Front-end Dev`,
-    description: `Brais Cao personal portfolio website.`,
+    description: `Hi, I am Brais!`,
     author: `@braisc`,
+    imageShare: `share.jpg`,
   },
   plugins: [
     `gatsby-plugin-mdx`,
