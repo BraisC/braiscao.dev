@@ -28,7 +28,7 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const metaImage = site.siteMetadata.imageShare;
-  const defaultTitle = site.siteMetadata?.title;
+  const defaultTitle = title || site.siteMetadata?.title;
 
   return (
     <Helmet
