@@ -3,7 +3,7 @@ module.exports = {
     title: `Brais Cao - Front-end Dev`,
     description: `Hi, I am Brais!`,
     author: `@braisc`,
-    imageShare: `share.jpg`,
+    imageShare: `sharing.png`,
   },
   plugins: [
     `gatsby-plugin-mdx`,
