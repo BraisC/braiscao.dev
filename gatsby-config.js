@@ -4,6 +4,7 @@ module.exports = {
     description: `Hi, I am Brais!`,
     author: `@braisc`,
     imageShare: `sharing.png`,
+    url: 'https://braiscao.dev',
   },
   plugins: [
     `gatsby-plugin-mdx`,

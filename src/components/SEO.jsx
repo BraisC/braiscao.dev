@@ -20,6 +20,7 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             imageShare
+            url
           }
         }
       }
@@ -27,7 +28,7 @@ function SEO({ description, lang, meta, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = site.siteMetadata.imageShare;
+  const metaImage = `${site.siteMetadata.url}/${site.siteMetadata.imageShare}`;
   const defaultTitle = title || site.siteMetadata?.title;
 
   return (
