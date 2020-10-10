@@ -11,7 +11,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 10rem;
+  height: 8rem;
   z-index: 4;
   background-color: var(--color-black);
 `;
@@ -39,7 +39,7 @@ const Title = styled.span`
 const Hamburger = styled(motion.div)`
   width: 10rem;
   height: 66%;
-  padding: 1rem 3rem;
+  padding: 0.6rem 3rem;
   color: var(--color-white);
   font-size: 2rem;
   display: flex;
@@ -93,7 +93,7 @@ const MobileHeader = () => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 55, quality: 100, traceSVG: { threshold: 254 }) {
+          fixed(width: 50, quality: 100, traceSVG: { threshold: 254 }) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
@@ -111,9 +111,9 @@ const MobileHeader = () => {
         </HeaderTitle>
 
         <Hamburger initial={false} animate={isMenuOpen ? 'open' : 'closed'} onClick={handleClick}>
-          <HamburgerLine style={{ originX: '0.10rem' }} variants={firstLine} />
+          <HamburgerLine style={{ originX: '0.65rem' }} variants={firstLine} />
           <HamburgerLine variants={secondLine} />
-          <HamburgerLine style={{ originX: '0.10rem' }} variants={thirdLine} />
+          <HamburgerLine style={{ originX: '0.65rem' }} variants={thirdLine} />
         </Hamburger>
       </Wrapper>
       <AnimatePresence>

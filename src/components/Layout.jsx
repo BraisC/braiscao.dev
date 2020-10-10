@@ -89,6 +89,9 @@ const HeaderWrapper = styled(motion.div)`
   z-index: 4;
   width: 100%;
   height: 10rem;
+  @media only screen and (max-width: 900px) {
+    height: 8rem;
+  }
 `;
 
 const Layout = ({ children }) => {

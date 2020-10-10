@@ -37,15 +37,15 @@ const Wrapper = styled(motion.div)`
   transition: background-color 0.2s ease, color 0.2s ease;
   position: fixed;
   width: 100%;
-  height: calc(var(--app-height) - 10rem);
-  z-index: 3;
+  height: calc(var(--app-height));
+  z-index: 5;
   background-color: var(--color-translucid);
 `;
 
 const Nav = styled.nav`
   padding: 1rem;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   transform: translateY(-5rem);
 `;
@@ -55,14 +55,19 @@ const Menu = styled.ul`
 
   & li {
     list-style: none;
+    margin: 1rem 0;
   }
+`;
+
+const MenuLink = styled(Link)`
+  padding: 1.5rem;
 `;
 
 const MenuItem = ({ value, route, closeMenu, ...rest }) => (
   <motion.li key={value} variants={itemVariants}>
-    <Link onClick={closeMenu} to={route} {...rest}>
+    <MenuLink onClick={closeMenu} to={route} {...rest}>
       {value}
-    </Link>
+    </MenuLink>
   </motion.li>
 );
 

@@ -6,7 +6,6 @@ import { Link } from 'react-scroll';
 
 const Wrapper = styled.header`
   padding: 1rem 2rem;
-  position: fixed;
   display: flex;
   align-items: center;
   width: 100%;
