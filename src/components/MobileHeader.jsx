@@ -15,6 +15,7 @@ const Wrapper = styled.header`
   z-index: 4;
   background-color: var(--color-black);
 `;
+
 const HeaderTitle = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +39,7 @@ const Title = styled.span`
 const Hamburger = styled(motion.div)`
   width: 10rem;
   height: 66%;
-  padding: 0.6rem 3rem;
+  padding: 1rem 3rem;
   color: var(--color-white);
   font-size: 2rem;
   display: flex;
@@ -64,6 +65,7 @@ const firstLine = {
   },
   open: { rotate: 45, marginTop: '1px', backgroundColor: 'var(--color-red)' },
 };
+
 const secondLine = {
   closed: { opacity: 1 },
   open: {
@@ -86,17 +88,19 @@ const MobileHeader = () => {
     // I suppose this is fine as it is not React-created DOM
     document.querySelector('body').classList.toggle('noscroll');
   };
+
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 70, quality: 100, traceSVG: { threshold: 254 }) {
+          fixed(width: 55, quality: 100, traceSVG: { threshold: 254 }) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
     }
   `);
+
   return (
     <>
       <Wrapper>
