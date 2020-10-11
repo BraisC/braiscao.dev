@@ -1,5 +1,6 @@
-## My personal portfolio made with Gatsby
+# [braiscao.dev](https://braiscao.dev/)
 
+My personal portfolio made with Gatsby and React.
 
 ![](https://img.shields.io/netlify/8e8c1326-c6a2-4e67-86ad-bcb6f68b3e4c?label=Netlify&logo=Netlify&style=flat-square)
 ![](https://img.shields.io/github/repo-size/BraisC/braiscao.dev?logo=github&style=flat-square)
