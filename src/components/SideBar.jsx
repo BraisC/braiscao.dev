@@ -82,6 +82,7 @@ const SideBar = ({ closeMenu }) => (
           spy
           smooth
           duration={500}
+          offset={-100}
           closeMenu={closeMenu}
         />
         <MenuItem
