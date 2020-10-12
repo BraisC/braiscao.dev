@@ -113,8 +113,7 @@ const StyledButton = styled(Button)`
 `;
 
 const Home = () => (
-  <>
-    <Element name="home" />
+  <Element name="home">
     <Wrapper>
       <StyledHeader>
         Hi, my name is <StyledName>Brais</StyledName>
@@ -143,7 +142,7 @@ const Home = () => (
         <Arrow icon={faChevronDown} />
       </ArrowLink>
     </Wrapper>
-  </>
+  </Element>
 );
 
 export default Home;

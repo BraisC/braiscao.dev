@@ -23,8 +23,7 @@ const About = () => {
   );
 
   return (
-    <>
-      <Element name="about" />
+    <Element name="about">
       <Section title="about" subTitle="In case you want to know me">
         <MDXProvider
           components={{
@@ -41,7 +40,7 @@ const About = () => {
           Check my CV
         </Button>
       </Section>
-    </>
+    </Element>
   );
 };
 export default About;

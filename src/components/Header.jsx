@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'react-scroll';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 
 const Wrapper = styled.header`
   padding: 1rem 2rem;
@@ -32,9 +33,13 @@ const Menu = styled.ul`
 
 const MenuItem = styled.li`
   margin: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const MenuItemLink = styled(Link)`
+const StyledMenuItemLink = styled(Link)`
   padding: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -64,7 +69,32 @@ const Title = styled.span`
   color: var(--color-primary);
 `;
 
+const Underline = styled(motion.div)`
+  width: 90%;
+  height: 3px;
+  background: var(--color-primary);
+  position: absolute;
+  bottom: 0;
+`;
+
+const MenuItemLink = (props) => (
+  <>
+    <StyledMenuItemLink
+      to={props.value}
+      spy
+      smooth
+      duration={500}
+      offset={-100}
+      onSetActive={() => props.setActive(props.value)}
+    >
+      {props.value}
+    </StyledMenuItemLink>
+    {props.active === props.value && <Underline layoutId="underline" />}
+  </>
+);
+
 const Header = () => {
+  const [active, setActive] = useState('');
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
@@ -77,6 +107,22 @@ const Header = () => {
     }
   `);
 
+  const handleScroll = () => {
+    const totalPageHeight = document.body.scrollHeight;
+    const scrollPoint = window.scrollY + window.innerHeight;
+
+    if (scrollPoint >= totalPageHeight - 10) {
+      setActive('contact');
+    } else if (active === 'contact') {
+      setActive('about');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
   return (
     <Wrapper>
       <Content>
@@ -86,26 +132,20 @@ const Header = () => {
           <Title>Web developer</Title>
         </HeaderTitle>
         <Menu>
-          <MenuItem>
-            <MenuItemLink activeClass="active" to="home" spy smooth duration={500}>
-              Home
-            </MenuItemLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink activeClass="active" to="portfolio" spy smooth duration={500}>
-              Portfolio
-            </MenuItemLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink activeClass="active" to="about" spy smooth duration={500} offset={-100}>
-              About
-            </MenuItemLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink activeClass="active" to="contact" spy smooth duration={500}>
-              Contact
-            </MenuItemLink>
-          </MenuItem>
+          <AnimateSharedLayout>
+            <MenuItem>
+              <MenuItemLink value="home" setActive={setActive} active={active} />
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink value="portfolio" setActive={setActive} active={active} />
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink value="about" setActive={setActive} active={active} />
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink value="contact" setActive={setActive} active={active} />
+            </MenuItem>
+          </AnimateSharedLayout>
         </Menu>
       </Content>
     </Wrapper>
