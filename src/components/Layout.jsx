@@ -61,15 +61,6 @@ const GlobalStyle = createGlobalStyle`
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   }
 
-  [data-emoji] {
-    font-style: normal;
-    font-weight: normal;
-  }
-  [data-emoji]:before {
-    content: attr(data-emoji);
-    margin-right: .250em;
-  }
-
   ::-moz-selection { background: var(--color-primary); }
   ::selection { background: var(--color-primary); }
 
