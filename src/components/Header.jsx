@@ -77,21 +77,32 @@ const Underline = styled(motion.div)`
   bottom: 0;
 `;
 
-const MenuItemLink = (props) => (
-  <>
-    <StyledMenuItemLink
-      to={props.value}
-      spy
-      smooth
-      duration={500}
-      offset={-100}
-      onSetActive={() => props.setActive(props.value)}
-    >
-      {props.value}
-    </StyledMenuItemLink>
-    {props.active === props.value && <Underline layoutId="underline" />}
-  </>
-);
+const MenuItemLink = (props) => {
+  const handleActive = () => {
+    const totalPageHeight = document.body.scrollHeight;
+    const scrollPoint = window.scrollY + window.innerHeight;
+
+    if (!(scrollPoint >= totalPageHeight - 30)) {
+      props.setActive(props.value);
+    }
+  };
+
+  return (
+    <>
+      <StyledMenuItemLink
+        to={props.value}
+        spy
+        smooth
+        duration={500}
+        offset={-250}
+        onSetActive={handleActive}
+      >
+        {props.value}
+      </StyledMenuItemLink>
+      {props.active === props.value && <Underline layoutId="underline" />}
+    </>
+  );
+};
 
 const Header = () => {
   const [active, setActive] = useState('');
@@ -111,7 +122,7 @@ const Header = () => {
     const totalPageHeight = document.body.scrollHeight;
     const scrollPoint = window.scrollY + window.innerHeight;
 
-    if (scrollPoint >= totalPageHeight - 10) {
+    if (scrollPoint >= totalPageHeight - 30) {
       setActive('contact');
     } else if (active === 'contact') {
       setActive('about');
