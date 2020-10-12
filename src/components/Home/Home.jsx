@@ -135,10 +135,10 @@ const Home = () => (
         />
       </StyledSubTitle>
 
-      <StyledButton as={Link} to="portfolio" spy smooth duration={500}>
+      <StyledButton as={Link} to="portfolio" spy smooth duration={500} offset={-100}>
         Let me show you my work
       </StyledButton>
-      <ArrowLink to="portfolio" spy smooth duration={500}>
+      <ArrowLink to="portfolio" spy smooth duration={500} offset={-100}>
         <Arrow icon={faChevronDown} />
       </ArrowLink>
     </Wrapper>
