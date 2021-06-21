@@ -44,7 +44,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: title || 'Brais Cao - Front-end Developer',
         },
         {
           property: `og:description`,
@@ -59,16 +59,16 @@ function SEO({ description, lang, meta, title }) {
           content: metaImage,
         },
         {
-          name: `twitter:card`,
+          name: 'twitter:card',
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: 'twitter:creator',
           content: site.siteMetadata?.author || ``,
         },
         {
-          name: `twitter:title`,
-          content: title,
+          name: 'twitter:title',
+          content: title || 'Brais Cao - Front-end Developer',
         },
         {
           name: `twitter:description`,
@@ -77,6 +77,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: 'twitter:image',
           content: metaImage,
+        },
+        {
+          name: 'twitter:texty:title',
+          content: title,
         },
       ].concat(meta)}
     />
