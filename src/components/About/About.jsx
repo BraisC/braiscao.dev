@@ -9,7 +9,7 @@ import Section from '../Section';
 import Bio from './components/Bio';
 import Stack from './components/Stack';
 
-import curriculum from '../../../static/curriculum.pdf';
+import curriculum from '../../../static/cao-gonzalez-brais-cv.pdf';
 
 const About = () => {
   const data = useStaticQuery(

@@ -3,5 +3,15 @@
   "rules": {
     "react/display-name": 0,
     "react/jsx-props-no-spreading": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.mdx"
+      ],
+      "rules": {
+        "react/jsx-no-undef": 0
+      }
+    }
+  ]
 }
