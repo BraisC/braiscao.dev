@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { AnimatePresence, motion } from 'framer-motion';
-import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import { AnimatePresence, motion } from 'framer-motion';
+import styled from 'styled-components';
+import Img from 'gatsby-image';
 import SideBar from './SideBar';
 
 const Wrapper = styled.header`
