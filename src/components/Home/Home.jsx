@@ -124,11 +124,10 @@ const Home = () => (
           cursorColor="#71e2a6"
           pauseTimer={1000}
           sentences={[
-            'a web developer.',
+            'a senior web developer.',
             'from Spain.',
             'a self-learner.',
-            'mastering Javascript.',
-            'an inconformist.',
+            'mastering React and Typescript.',
             'a geek.',
             'always learning!',
           ]}
