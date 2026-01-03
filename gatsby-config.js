@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Brais Cao - Front-end Dev`,
+    title: `Brais Cao - Frontend Engineer`,
     description: `Hi, I am Brais!`,
     author: `@braisc`,
     imageShare: `sharing.png`,
@@ -27,9 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-            `montserrat\:300,400,500,600,700`,
-        ],
+        fonts: [`montserrat\:300,400,500,600,700`],
       },
     },
     `gatsby-transformer-sharp`,
